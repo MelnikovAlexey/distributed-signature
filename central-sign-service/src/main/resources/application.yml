@@ -23,3 +23,9 @@ logging:
     name: logs/app.log
   level:
     org.springframework: info
+
+keystore:
+  password: 12345678
+  file:
+    path: E:\Projects\distributed-signature\store\
+    name: test_keyStore.keystore
