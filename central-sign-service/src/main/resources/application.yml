@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: sign-service
+server:
+  port: 8082
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+    instanceId: ${spring.application.name}:${server.port}
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 180000
+        readTimeout: 180000
+
+logging:
+  file:
+    name: logs/app.log
+  level:
+    org.springframework: info

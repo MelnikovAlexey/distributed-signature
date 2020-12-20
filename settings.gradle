@@ -1,0 +1,4 @@
+rootProject.name = 'distributed-signature'
+include 'service-discovery'
+include 'central-sign-service'
+
