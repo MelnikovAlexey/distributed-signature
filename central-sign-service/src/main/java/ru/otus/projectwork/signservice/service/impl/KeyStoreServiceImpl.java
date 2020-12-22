@@ -21,6 +21,7 @@ import java.security.cert.CertificateException;
 public class KeyStoreServiceImpl implements KeyStoreService {
     /**
      * имя ключевого носителя для инициализации хранилища
+     * для центрального хранилища это хранилище на жестком диске.
      */
     private static final String STORE_TYPE = JCP.HD_STORE_NAME;
 

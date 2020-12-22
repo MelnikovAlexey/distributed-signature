@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface LocalSignServiceGateway {
     @PostMapping(value = "/sign", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    Optional<byte[]> doSign(MultipartFile file);
+    Optional<String> doSign(MultipartFile file);
 
     @GetMapping("/info")
     String requestToken();

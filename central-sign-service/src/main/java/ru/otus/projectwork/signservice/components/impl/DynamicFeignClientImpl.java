@@ -24,7 +24,7 @@ public class DynamicFeignClientImpl implements DynamicFeignClient {
     }
 
     @Override
-    public Optional<byte[]> doSign(String serviceName, MultipartFile data) {
+    public Optional<String> doSign(String serviceName, MultipartFile data) {
         log.info("Service name:{}", serviceName);
         return getGateway(serviceName).doSign(data);
     }

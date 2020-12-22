@@ -12,7 +12,7 @@ public interface DynamicFeignClient {
      * @param data - документ на подпись
      * @return массив байт ЭЦП
      */
-    Optional<byte[]> doSign(String serviceName, MultipartFile data);
+    Optional<String> doSign(String serviceName, MultipartFile data);
 
     /**
      * Запрос информации о токенах на запущенных локальных сервисах ЭЦП
