@@ -19,8 +19,3 @@ feign:
       default:
         connectTimeout: 180000
         readTimeout: 180000
-pkcs:
-  lib:
-    name: rtpkcs11ecp
-cron:
-  expression: 0/30 * * * * ?
