@@ -8,7 +8,8 @@ import ru.otus.projectwork.signservice.entity.UserToken;
 
 @Repository
 public interface UserTokenRepository extends CrudRepository<UserToken, Long> {
-    @Query("select ut from UserToken ut where ut.userId = :userId")
-    UserToken findUserByUserId(@Param("userId") long id);
+
+    @Query("select ut from UserToken ut where ut.userId =:userId")
+    UserToken findUserByUserId(@Param("userId") long userId);
 
 }

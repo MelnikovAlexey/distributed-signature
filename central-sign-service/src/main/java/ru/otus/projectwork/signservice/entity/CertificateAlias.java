@@ -6,7 +6,10 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "certificate_alias")
+@Table(name = "certificate_alias",indexes = {
+        @Index(name = "certificate_alias_calias_uindex", columnList = "calias", unique = true),
+        @Index(name = "certificate_alias_id_user_uindex", columnList = "id_user", unique = true)
+})
 @Getter
 @Setter
 public class CertificateAlias {

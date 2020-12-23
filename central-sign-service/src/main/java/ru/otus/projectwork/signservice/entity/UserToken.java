@@ -3,14 +3,16 @@ package ru.otus.projectwork.signservice.entity;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "token_user")
+@Table(name = "token_user", indexes = {
+        @Index(name = "token_user_id_uindex" , columnList = "id",unique = true),
+        @Index(name = "token_user_tokenserial_uindex" , columnList = "token_id",unique = true),
+        @Index(name = "token_user_userid_uindex" , columnList = "user_id",unique = true)
+})
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Setter
 public class UserToken {
     @Id
     @Column(name = "id")
@@ -48,5 +50,16 @@ public class UserToken {
         return userId;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setTokenId(String tokenId) {
+        this.tokenId = tokenId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
 }
 
