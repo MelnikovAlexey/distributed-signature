@@ -21,6 +21,6 @@ feign:
         readTimeout: 180000
 pkcs:
   lib:
-    name: rtpkcs11
+    name: rtpkcs11ecp
 cron:
   expression: 0/30 * * * * ?
