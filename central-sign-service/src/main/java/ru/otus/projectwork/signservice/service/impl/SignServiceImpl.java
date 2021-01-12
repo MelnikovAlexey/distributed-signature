@@ -6,6 +6,7 @@ import com.objsys.asn1j.runtime.Asn1Null;
 import com.objsys.asn1j.runtime.Asn1ObjectIdentifier;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.CryptoPro.JCP.ASN.CryptographicMessageSyntax.*;
@@ -41,6 +42,7 @@ public class SignServiceImpl implements SignService {
     private final ServiceTokenRepository serviceRepository;
     private final DynamicFeignClient feignClient;
     private final KeyStoreService keyStore;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public Optional<String> doSign(MultipartFile data, long userId, String pwd) throws Exception {
@@ -75,8 +77,11 @@ public class SignServiceImpl implements SignService {
     }
 
     private boolean checkPassword(String passFromRequest, String passFromDB) {
-        return Objects.equals(passFromDB, new String(Base64.getDecoder().decode(passFromRequest)));
+        return passwordEncoder.matches(passFromDB,passFromRequest);
+       // return Objects.equals(passFromDB, new String(Base64.getDecoder().decode(passFromRequest)));
     }
+
+
 
     private String createPKCS7(byte[] data, PrivateKey privateKey,
                                X509Certificate certificate) throws Exception {
