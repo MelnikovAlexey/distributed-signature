@@ -15,11 +15,13 @@
 
 #### Пример запроса на ЭЦП
 
-`curl -i -X POST \
+```
+curl -i -X POST \
    -H "Content-Type:multipart/form-data" \
    -H "Authorization:Basic dXNlcjE6MTIzNDU=" \
    -F "file=@\"./{filename}\";type=application/pdf;filename=\"{filename}\"" \
- 'http://{host}:{port}/sign/{id}'`
+ 'http://{host}:{port}/sign/{id}'
+ ```
  
  в ответ возвращается строка ЭЦП в кодировке Base64.
  
