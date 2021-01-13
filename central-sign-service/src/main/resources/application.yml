@@ -1,6 +1,11 @@
 spring:
+  datasource:
+    url: jdbc:h2:mem:OtusExamplesDB;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
   application:
     name: sign-service
+
 server:
   port: 8082
 eureka:
@@ -22,4 +27,10 @@ logging:
   file:
     name: logs/app.log
   level:
-    org.springframework: info
+    org.springframework: debug
+
+keystore:
+  password: 12345678
+  file:
+    path: E:\Projects\distributed-signature\store\
+    name: test_keyStore.keystore

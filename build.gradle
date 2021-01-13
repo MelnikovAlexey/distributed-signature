@@ -31,15 +31,7 @@ allprojects {
                 mavenBom("org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR8")
             }
 
-            dependency("com.google.guava:guava:29.0-jre")
-            dependency("org.openjdk.jmh:jmh-core:1.23")
-            dependency("org.openjdk.jmh:jmh-generator-annprocess:1.23")
-            dependency("org.openjdk.jol:jol-core:0.10")
-            dependency("org.ow2.asm:asm-commons:8.0.1")
-            dependency("org.glassfish:javax.json:1.1.4")
-            dependency("com.google.code.gson:gson:2.8.6")
             dependency("org.flywaydb:flyway-core:6.4.4")
-
         }
     }
 

@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: arm1
+server:
+  port: 8084
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+    instanceId: ${spring.application.name}:${server.port}
+logging:
+    level:
+      org.springframework: debug
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 180000
+        readTimeout: 180000
+pkcs:
+  lib:
+    name: rtpkcs11ecp
+cron:
+  expression: 0/30 * * * * ?
